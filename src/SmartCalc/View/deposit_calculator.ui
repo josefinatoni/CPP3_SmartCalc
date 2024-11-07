@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Deposit_calculator</class>
+ <widget class="QDialog" name="Deposit_calculator">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1210</width>
+    <height>645</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Deposit calculator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #708090;</string>
+  </property>
+  <widget class="QPushButton" name="calc">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>380</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: #595959;
+	color: #d9d9d9;
+   	border: 1px solid grey;
+}
+QPushButton:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 0, 0, 0), stop:0.52 rgba(0, 0, 0, 0), stop:0.565 rgba(82, 121, 76, 33), stop:0.650246 rgba(235, 235, 235, 64), stop:0.724138 rgba(255, 254, 250, 129), stop:0.768473 rgba(255, 255, 255, 204), stop:0.891626 rgba(253, 252, 255, 64), stop:1 rgba(0, 0, 0, 0));
+	border: 1px solid grey;
+}</string>
+   </property>
+   <property name="text">
+    <string>Рассчитать</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Сумма вклада</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>150</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Срок размещения</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>220</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Процентная ставка</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>290</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Налоговая ставка</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>540</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Налог</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>460</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Сумма на вкладе к концу срока</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>460</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Начисленные проценты</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>80</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Периодичность выплат</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="capitalization">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>290</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Капитализация процентов</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="pmnt_period">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>85</y>
+     <width>211</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">  background-color: rgb(155, 155, 156);
+  color: #d9d9d9; 
+  border: 1px solid gray;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Раз в месяц</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Раз в полгода</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>В конце срока</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QDoubleSpinBox" name="line_sum">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>80</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>0.010000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999999999999999939709166371603178586112.000000000000000</double>
+   </property>
+   <property name="value">
+    <double>0.010000000000000</double>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="interest_rate">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>220</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>0.010000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999.000000000000000</double>
+   </property>
+   <property name="value">
+    <double>0.010000000000000</double>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="tax_rate">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>290</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>0.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999.000000000000000</double>
+   </property>
+   <property name="value">
+    <double>0.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="percents">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>460</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="tax">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>540</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="end_sum">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>460</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="addition_when">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>155</y>
+     <width>211</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">  background-color: rgb(155, 155, 156);
+  color: #d9d9d9; 
+  border: 1px solid gray;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Раз в месяц</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Раз в квартал</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Раз в полгода</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Раз в год</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="partial_when">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>225</y>
+     <width>211</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">  background-color: rgb(155, 155, 156);
+  color: #d9d9d9; 
+  border: 1px solid gray;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Раз в месяц</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Раз в квартал</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Раз в полгода</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Раз в год</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>170</y>
+     <width>58</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>месяц</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="line_term">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>150</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="add_check">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>150</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Пополнения</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="partial_check">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>220</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Частичные снятия</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="addition">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>155</y>
+     <width>131</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>0.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999999999999999939709166371603178586112.000000000000000</double>
+   </property>
+   <property name="value">
+    <double>0.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="partial">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>225</y>
+     <width>131</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>0.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999999999999999939709166371603178586112.000000000000000</double>
+   </property>
+   <property name="value">
+    <double>0.000000000000000</double>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
